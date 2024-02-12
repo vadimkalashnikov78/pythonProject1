@@ -192,13 +192,15 @@ class WishlistView(View):
             # Иначе отправляет авторизоваться
         return redirect('login:login')
 
-#TODO Добавить обработчик функций добавления и удаления продукта в избранное
+def add_product(request, product_id):
+    wishes_to_add = Wish.objects.get(owner=request.user)
+    product_to_add = Product.objects.get(id=product_id)
+    wishes_to_add.product.add(product_to_add)
+    return redirect('store:shop')
 
-    # def add_product(self, request, id):
-    #     pass
-    #
+def delete_product(request, product_id):
+    wishes_to_delete = Wish.objects.get(owner=request.user)
+    product_to_delete = Product.objects.get(id=product_id)
+    wishes_to_delete.product.remove(product_to_delete)
+    return redirect('store:wishlist')
 
-    # def delete_product(self, request, product_id):
-    #     wish = Wish.objects.filter(owner=request.user).get(product_id=product_id)
-    #     wish.delete()
-    #     return response.Response({'message': 'Product delete from wishlist'}, status=201)

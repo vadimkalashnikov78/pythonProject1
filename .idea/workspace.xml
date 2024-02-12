@@ -5,6 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4e8516ff-186c-4558-ae5b-63b1836af370" name="Changes" comment="Реализован функционал Wishlist&#10;Пока без удаления и добавления по кнопке&#10;только через админку">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/store/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/store/serializers.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/store/templates/store/shop.html" beforeDir="false" afterPath="$PROJECT_DIR$/store/templates/store/shop.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/store/templates/store/wishlist.html" beforeDir="false" afterPath="$PROJECT_DIR$/store/templates/store/wishlist.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/store/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/store/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/store/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/store/views.py" afterDir="false" />
@@ -58,7 +62,7 @@
       <option name="presentableId" value="Default" />
       <updated>1707722294296</updated>
       <workItem from="1707722296381" duration="2136000" />
-      <workItem from="1707724449779" duration="9678000" />
+      <workItem from="1707724449779" duration="19027000" />
     </task>
     <task id="LOCAL-00001" summary="Реализован функционал Wishlist&#10;Пока без удаления и добавления по кнопке&#10;только через админку">
       <option name="closed" value="true" />
@@ -76,7 +80,15 @@
       <option name="project" value="LOCAL" />
       <updated>1707743100445</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Реализован функционал Wishlist&#10;Пока без удаления и добавления по кнопке&#10;только через админку">
+      <option name="closed" value="true" />
+      <created>1707748796827</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1707748796827</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
