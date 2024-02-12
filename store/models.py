@@ -69,5 +69,10 @@ class Cart(models.Model):
 
 
 class Wish(models.Model):
-    product = models.ForeignKey(Product, on_delete=models.CASCADE)
-
+    """
+    Создаем таблицу из 2 полей
+    owner - владелец избранного
+    product - продукты входящие в избранное может быть несколько для одного пользователя
+    """
+    owner = models.ForeignKey(User, models.SET_NULL, blank=True, null=True)
+    product = models.ManyToManyField(Product)

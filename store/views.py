@@ -1,14 +1,14 @@
+from django.db.models import F, ExpressionWrapper, DecimalField, Case, When
+from django.shortcuts import get_object_or_404
+from django.shortcuts import redirect
 from django.shortcuts import render
-from django.views import View
-from django.db.models import OuterRef, Subquery, F, ExpressionWrapper, DecimalField, Case, When
 from django.utils import timezone
-from .models import Product, Discount, Cart, Wish
+from django.views import View
 from rest_framework import viewsets, response
 from rest_framework.permissions import IsAuthenticated
+
+from .models import Product, Cart, Wish
 from .serializers import CartSerializer
-from django.shortcuts import get_object_or_404
-from django.contrib.auth.models import User
-from django.shortcuts import redirect
 
 
 class CartViewSet(viewsets.ModelViewSet):
@@ -181,23 +181,23 @@ class WishlistView(View):
         if request.user.is_authenticated:
             """
             Выбираем все объекты из Wish и далее передаем на отображение только те продукты,
-             которые есть в списке Wishlist """
+            которые есть в списке Wishlist текущего пользователя
+            2 фильтра
+            """
 
-            # wishlist = Wish.objects.all()
-            products = Product.objects.filter(id__in=Wish.objects.values("product_id")).values('id', 'name', 'description', 'price', 'image')
+            products = (Product.objects.filter(id__in=Wish.objects.filter(owner=request.user).values("product")).
+                        values('id', 'name', 'description', 'price', 'image'))
 
             return render(request, "store/wishlist.html", {"data": products})
             # Иначе отправляет авторизоваться
         return redirect('login:login')
 
-    def add_product(self, request, id):
-        pass
+#TODO Добавить обработчик функций добавления и удаления продукта в избранное
 
-    def delete_product(self, request, product_id):
-        wish = Wish.objects.get(product_id=product_id)
-        wish.delete()
-        return render(request, "store/wishlist.html")
-
-
-
-
+    # def add_product(self, request, id):
+    #     pass
+    #
+    # def delete_product(self, request, product_id):
+    #     wish = Wish.objects.get(product_id=product_id)
+    #     wish.delete()
+    #     return render(request, "store/wishlist.html")
