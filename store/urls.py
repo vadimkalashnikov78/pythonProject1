@@ -12,5 +12,5 @@ urlpatterns = [
     path('cart/', CartView.as_view(), name='cart'),
     path('product/<int:id>/', ProductSingleView.as_view(), name='product'),
     path('wishlist/', WishlistView.as_view(), name='wishlist'),
-    path('delete_product/<int:id>', WishlistView.delete_product, name='delete_product') #додумать вызов функции
+    # path('delete_product/<int:id>', WishlistView.delete_product, name='delete_product') #додумать вызов функции
 ]

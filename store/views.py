@@ -198,7 +198,7 @@ class WishlistView(View):
     #     pass
     #
 
-    def delete_product(self, request, product_id):
-        wish = Wish.objects.filter(owner=request.user).get(product_id=product_id)
-        wish.delete()
-        return response.Response({'message': 'Product delete from wishlist'}, status=201)
+    # def delete_product(self, request, product_id):
+    #     wish = Wish.objects.filter(owner=request.user).get(product_id=product_id)
+    #     wish.delete()
+    #     return response.Response({'message': 'Product delete from wishlist'}, status=201)
