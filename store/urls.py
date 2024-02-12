@@ -1,6 +1,6 @@
 from django.urls import path
 from .views import ShopView, CartView, ProductSingleView, CartViewSet, WishlistView
-from rest_framework import routers
+from rest_framework import routers, request
 
 router = routers.DefaultRouter()
 router.register(r'cart', CartViewSet)
@@ -11,5 +11,6 @@ urlpatterns = [
     path('', ShopView.as_view(), name='shop'),
     path('cart/', CartView.as_view(), name='cart'),
     path('product/<int:id>/', ProductSingleView.as_view(), name='product'),
-    path('wishlist/', WishlistView.as_view(), name='wishlist')
+    path('wishlist/', WishlistView.as_view(), name='wishlist'),
+    path('delete_product/<int:id>', WishlistView.delete_product, name='delete_product') #додумать вызов функции
 ]
